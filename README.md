@@ -13,12 +13,20 @@
     - [Part B](#part-b)
       - [Problem Statement](#problem-statement)
       - [Solution](#solution)
-<!--toc:end--> 
+<!--toc:end-->
+
+Solutions for Securin Assignment
 
 ## Problem Statement: The Doomed Dice Challenge
 
 
 ### Part A
+
+Code for this part is given in the `partA` directory. To run the code, type
+
+```bash
+go run .
+```
 
 ####  Question 1
 
@@ -38,7 +46,8 @@ The above answer can be verified using the following code (written in Go):
 
 ```go
 import "fmt"
-func ques1()  {
+func ques1() {
+
     var (
         die1 [6]int = [6]int{1,2,3,4,5,6}
         die2 [6]int = [6]int{1,2,3,4,5,6}
@@ -54,6 +63,10 @@ func ques1()  {
 
     fmt.Printf("Total: %d possible combinations\n", total)
 
+}
+
+func main() {
+    ques1()
 }
 ```
 
@@ -97,6 +110,10 @@ func ques2()  {
     }
 
 }
+
+func main(){
+    ques2()
+}
 ```
 
 The resulting 6 x 6 matrix looks like this:
@@ -138,20 +155,6 @@ $$
 
 , and can be represented in the form of code as follows,
 
-```go 
-func freq(Sum int) (int, error) {
-    if Sum > 12 || Sum < 2 {
-        return 0, errors.New("Sum can only be in range 2-12")
-    }
-
-    if Sum <= 7 {
-        return Sum-1, nil
-    } else {
-        return 12 - Sum + 1, nil
-    }
-
-}
-```
 
 #### Question 3
 
@@ -161,9 +164,11 @@ func freq(Sum int) (int, error) {
 
 The Probability distribution can be obtained by dividing the frequency of each sum by the total number of all possible combinations for a pair of dice, i.e. 36
 
-$$
+```math
 \text{Probability}(\text{Sum}) = \text{Frequency}(\text{Sum})/36
-$$
+```
+
+
 
 ```
 Sum     Freq    Probability
@@ -207,6 +212,12 @@ func ques3()  {
 
 ### Part B
 
+Code for this part is given in the `partB` directory. To run the code, type
+
+```bash
+go run .
+```
+
 #### Problem Statement 
 
 Now comes the real challenge. You were happily spending a lazy afternoon playing your board game with your dice when suddenly the mischievous Norse God Loki ( You love Thor too much & Loki didn’t like that much ) appeared.
@@ -241,6 +252,7 @@ So, the code for the given solution is as follows:
 
 import (
 	"errors"
+	"fmt"
 )
 func undoom(dieA, dieB [6]int) ([6]int, [6]int, error) {
 	var standard_dice = [6]int{1, 2, 3, 4, 5, 6}
@@ -251,4 +263,6 @@ func undoom(dieA, dieB [6]int) ([6]int, [6]int, error) {
 
 	return [6]int{1, 2, 2, 3, 3, 4}, [6]int{1, 3, 4, 5, 6, 8}, nil
 }
+
 ```
+
