@@ -13,9 +13,7 @@
     - [Part B](#part-b)
       - [Problem Statement](#problem-statement)
       - [Solution](#solution)
-<!--toc:end-->
-
-Solutions for Securin Assignment
+<!--toc:end--> 
 
 ## Problem Statement: The Doomed Dice Challenge
 
@@ -141,7 +139,18 @@ $$
 , and can be represented in the form of code as follows,
 
 ```go 
+func freq(Sum int) (int, error) {
+    if Sum > 12 || Sum < 2 {
+        return 0, errors.New("Sum can only be in range 2-12")
+    }
 
+    if Sum <= 7 {
+        return Sum-1, nil
+    } else {
+        return 12 - Sum + 1, nil
+    }
+
+}
 ```
 
 #### Question 3
@@ -153,7 +162,7 @@ $$
 The Probability distribution can be obtained by dividing the frequency of each sum by the total number of all possible combinations for a pair of dice, i.e. 36
 
 $$
-P(\text{ Sum }) = \text{freq(\text{Sum})} / 36
+\text{Probability}(\text{Sum}) = \text{Frequency}(\text{Sum})/36
 $$
 
 ```
